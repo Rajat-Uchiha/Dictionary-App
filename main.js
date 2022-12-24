@@ -19,7 +19,7 @@ fetchBtn.addEventListener('click', () => {
     fetchedData.then(data => {
         const wordData = data[0].meanings;
 
-         for (let i = 0; i < wordData.length; i++) {
+        for (let i = 0; i < wordData.length; i++) {
             partOfSpeechArr.push(wordData[i].partOfSpeech);
             definitionsArr.push(wordData[i].definitions[0].definition ? wordData[i].definitions[0].definition : 'No definition available.');
             ExamplesArr.push(wordData[i].definitions[0].example ? wordData[i].definitions[0].example : 'No example available.');
@@ -27,23 +27,23 @@ fetchBtn.addEventListener('click', () => {
 
         const result = `
         <div class=" my-4 mx-8 ">
-        <h4 class="text-3xl text-gray-800 font-semibold">Your word is <span
-                class="font-3xl font font-semibold text-green-800">${searchedWord.value}</span>
+        <h4 class="text-3xl text-white font-semibold">Your word is <span
+                class="font-3xl font font-semibold text-green-600">${searchedWord.value}</span>
         </h4>
         </div>
         <div class=" my-4 mx-8 ">
-            <h4 class="text-3xl text-gray-800 font-semibold">Meanings:- shown below </h4>
+            <h4 class="text-3xl text-white font-semibold">Meanings:- shown below </h4>
         </div>`
             ;
         document.getElementById('responseCard').innerHTML = result;
 
         for (let i = 0; i < partOfSpeechArr.length; i++) {
             let newCard = `<div class=" my-4 mx-8">
-            <h4 class="text-2xl text-gray-800 font-semibold">${i+1}. ${partOfSpeechArr[i].charAt(0).toUpperCase()+partOfSpeechArr[i].slice(1)} </h4>
-            <h6 class="text-xl text-gray-800 font-semibold">Definition - ${definitionsArr[i]}</h6>
-            <h6 class="text-xl text-gray-800 font-semibold">Example - ${ExamplesArr[i]}</h6>
+            <h4 class="text-2xl text-white font-semibold">${i + 1}. ${partOfSpeechArr[i].charAt(0).toUpperCase() + partOfSpeechArr[i].slice(1)} </h4>
+            <h6 class="text-xl text-white font-semibold">Definition - ${definitionsArr[i]}</h6>
+            <h6 class="text-xl text-white font-semibold">Example - ${ExamplesArr[i]}</h6>
         </div>`;
-            mainResponse.innerHTML+=newCard;
+            mainResponse.innerHTML += newCard;
         }
         mainResponse.classList.remove('hidden');
 
